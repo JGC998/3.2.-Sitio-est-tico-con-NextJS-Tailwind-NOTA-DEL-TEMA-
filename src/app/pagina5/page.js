@@ -10,12 +10,12 @@ export default function CarouselCard() {
             type: "carousel",
             focusAt: "center",
             perView: 3,
-            autoplay: 2000,
-            animationDuration: 200,
+            autoplay: 3000, // Aumentado el tiempo para una mejor visualización
+            animationDuration: 500,
             gap: 24,
             classNames: {
                 nav: {
-                    active: "[&>*]:bg-slate-700",
+                    active: "[&>*]:bg-primary",
                 },
             },
             breakpoints: {
@@ -33,43 +33,33 @@ export default function CarouselCard() {
         }
     }, [])
 
+    // Usaremos imágenes dummy temáticas de hardware o espacio.
+    const componentImages = [
+        "https://images.unsplash.com/photo-1627916606016-5655a3637e19", // Chip/Componente
+        "https://images.unsplash.com/photo-1543888361-9c8695d7b51d", // Interior Nave
+        "https://images.unsplash.com/photo-1541873676-a18131494106", // Placa de Circuito
+        "https://images.unsplash.com/photo-1591523414969-906d20397576", // Estación Espacial
+        "https://images.unsplash.com/photo-1526666993139-445831518f8c"  // Cabina
+    ];
+
+
     return (
-        <>
+        <div className="p-8 bg-base-200">
+            <h1 className="text-3xl font-bold mb-6 text-accent">⚙️ Vistas del Hardware Crítico de la Misión</h1>
             {/**/}
-            <div className="glide-06 relative w-full overflow-hidden rounded bg-white shadow-xl shadow-slate-200">
+            <div className="glide-06 relative w-full overflow-hidden rounded bg-base-100 shadow-xl shadow-base-300">
                 {/* */}
                 <div className="overflow-hidden" data-glide-el="track">
                     <ul className="whitespace-no-wrap flex-no-wrap [backface-visibility: hidden] [transform-style: preserve-3d] [touch-action: pan-Y] [will-change: transform] relative flex w-full overflow-hidden p-0">
-                        <li>
-                            <img
-                                src="https://Tailwindmix.b-cdn.net/carousel/carousel-image-05.jpg"
-                                className="m-auto max-h-full w-full max-w-full"
-                            />
-                        </li>
-                        <li>
-                            <img
-                                src="https://Tailwindmix.b-cdn.net/carousel/carousel-image-01.jpg"
-                                className="m-auto max-h-full w-full max-w-full"
-                            />
-                        </li>
-                        <li>
-                            <img
-                                src="https://Tailwindmix.b-cdn.net/carousel/carousel-image-02.jpg"
-                                className="m-auto max-h-full w-full max-w-full"
-                            />
-                        </li>
-                        <li>
-                            <img
-                                src="https://Tailwindmix.b-cdn.net/carousel/carousel-image-03.jpg"
-                                className="m-auto max-h-full w-full max-w-full"
-                            />
-                        </li>
-                        <li>
-                            <img
-                                src="https://Tailwindmix.b-cdn.net/carousel/carousel-image-04.jpg"
-                                className="m-auto max-h-full w-full max-w-full"
-                            />
-                        </li>
+                        {componentImages.map((src, index) => (
+                            <li key={index} className="flex-shrink-0 w-full md:w-[calc(100%/3)] px-3">
+                                <img
+                                    src={src}
+                                    alt={`Hardware View ${index + 1}`}
+                                    className="m-auto h-64 object-cover w-full max-w-full rounded-lg"
+                                />
+                            </li>
+                        ))}
                     </ul>
                 </div>
                 {/* */}
@@ -78,46 +68,18 @@ export default function CarouselCard() {
                     data-glide-el="controls"
                 >
                     <button
-                        className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-700 bg-white/20 text-slate-700 transition duration-300 hover:border-slate-900 hover:text-slate-900 focus-visible:outline-none lg:h-12 lg:w-12"
+                        className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-primary bg-white/20 text-primary transition duration-300 hover:border-primary-focus focus-visible:outline-none lg:h-12 lg:w-12"
                         data-glide-dir="<"
                         aria-label="prev slide"
                     >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth="1.5"
-                            stroke="currentColor"
-                            className="h-5 w-5"
-                        >
-                            <title>prev slide</title>
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
-                            />
-                        </svg>
+                        ❮
                     </button>
                     <button
-                        className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-700 bg-white/20 text-slate-700 transition duration-300 hover:border-slate-900 hover:text-slate-900 focus-visible:outline-none lg:h-12 lg:w-12"
+                        className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-primary bg-white/20 text-primary transition duration-300 hover:border-primary-focus focus-visible:outline-none lg:h-12 lg:w-12"
                         data-glide-dir=">"
                         aria-label="next slide"
                     >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth="1.5"
-                            stroke="currentColor"
-                            className="h-5 w-5"
-                        >
-                            <title>next slide</title>
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-                            />
-                        </svg>
+                        ❯
                     </button>
                 </div>
                 {/* */}
@@ -125,37 +87,19 @@ export default function CarouselCard() {
                     className="absolute bottom-0 flex w-full items-center justify-center gap-2"
                     data-glide-el="controls[nav]"
                 >
-                    <button
-                        className="group p-4"
-                        data-glide-dir="=0"
-                        aria-label="goto slide 1"
-                    >
-                        <span className="block h-2 w-2 rounded-full bg-white/20 ring-1 ring-slate-700 transition-colors duration-300 focus:outline-none"></span>
-                    </button>
-                    <button
-                        className="group p-4"
-                        data-glide-dir="=1"
-                        aria-label="goto slide 2"
-                    >
-                        <span className="block h-2 w-2 rounded-full bg-white/20 ring-1 ring-slate-700 transition-colors duration-300 focus:outline-none"></span>
-                    </button>
-                    <button
-                        className="group p-4"
-                        data-glide-dir="=2"
-                        aria-label="goto slide 3"
-                    >
-                        <span className="block h-2 w-2 rounded-full bg-white/20 ring-1 ring-slate-700 transition-colors duration-300 focus:outline-none"></span>
-                    </button>
-                    <button
-                        className="group p-4"
-                        data-glide-dir="=3"
-                        aria-label="goto slide 4"
-                    >
-                        <span className="block h-2 w-2 rounded-full bg-white/20 ring-1 ring-slate-700 transition-colors duration-300 focus:outline-none"></span>
-                    </button>
+                    {componentImages.map((_, index) => (
+                        <button
+                            key={index}
+                            className="group p-4"
+                            data-glide-dir={`=${index}`}
+                            aria-label={`goto slide ${index + 1}`}
+                        >
+                            <span className="block h-2 w-2 rounded-full bg-base-300 ring-1 ring-primary transition-colors duration-300 focus:outline-none"></span>
+                        </button>
+                    ))}
                 </div>
             </div>
             {/**/}
-        </>
+        </div>
     )
 }
