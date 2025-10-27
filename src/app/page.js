@@ -26,7 +26,7 @@ export default function Home() {
             {/* Cuenta Regresiva (CountDown) */}
             <div className="stats shadow bg-neutral text-neutral-content">
                 <div className="stat">
-                    <div className="stat-title text-accent">T-Tiempo de Lanzamiento</div>
+                    <div className="stat-title text-accent">Tiempo de Lanzamiento</div>
                     <CountDown from={120} />
                     <div className="stat-desc text-secondary">Inicia la secuencia en 2 minutos.</div>
                 </div>

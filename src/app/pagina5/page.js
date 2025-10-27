@@ -35,24 +35,24 @@ export default function CarouselCard() {
 
     // Usaremos imágenes dummy temáticas de hardware o espacio.
     const componentImages = [
-        "https://images.unsplash.com/photo-1627916606016-5655a3637e19", // Chip/Componente
-        "https://images.unsplash.com/photo-1543888361-9c8695d7b51d", // Interior Nave
-        "https://images.unsplash.com/photo-1541873676-a18131494106", // Placa de Circuito
-        "https://images.unsplash.com/photo-1591523414969-906d20397576", // Estación Espacial
-        "https://images.unsplash.com/photo-1526666993139-445831518f8c"  // Cabina
+    "Chip.png",          // Chip/Componente
+    "interiorNave.png",  // Interior Nave
+    "placa.png",         // Placa de Circuito
+    "estacion.png",      // Estación Espacial
+    "cabina.png"         // Cabina
     ];
 
 
     return (
         <div className="p-8 bg-base-200">
-            <h1 className="text-3xl font-bold mb-6 text-accent">⚙️ Vistas del Hardware Crítico de la Misión</h1>
+            <h1 className="text-3xl font-bold mb-6 text-accent">⚙️ Vistas del Hardware de la Misión</h1>
             {/**/}
             <div className="glide-06 relative w-full overflow-hidden rounded bg-base-100 shadow-xl shadow-base-300">
                 {/* */}
                 <div className="overflow-hidden" data-glide-el="track">
                     <ul className="whitespace-no-wrap flex-no-wrap [backface-visibility: hidden] [transform-style: preserve-3d] [touch-action: pan-Y] [will-change: transform] relative flex w-full overflow-hidden p-0">
                         {componentImages.map((src, index) => (
-                            <li key={index} className="flex-shrink-0 w-full md:w-[calc(100%/3)] px-3">
+                            <li key={index} className="shrink-0 w-full md:w-[calc(100%/3)] px-3">
                                 <img
                                     src={src}
                                     alt={`Hardware View ${index + 1}`}
